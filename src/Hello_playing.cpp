@@ -33,22 +33,20 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-#ifndef HELLO_HPP_
-#define HELLO_HPP_
+#include "Hello_playing.hpp"
+#include "Exception.hpp"
 
-#include <string>
-
-class Hello
+Hello_playing::Hello_playing(const std::string& rMessage)
+    : mMessage(rMessage)
 {
-private:
-    std::string mMessage;
+}
 
-public:
-    Hello(const std::string& rMessage);
+std::string Hello_playing::GetMessage()
+{
+    return mMessage;
+}
 
-    std::string GetMessage();
-
-    void Complain(const std::string& rComplaint);
-};
-
-#endif /*HELLO_HPP_*/
+void Hello_playing::Complain(const std::string& rComplaint)
+{
+    EXCEPTION(rComplaint);
+}
